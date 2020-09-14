@@ -1,9 +1,157 @@
-.container{
-    background:white;
-    border: 5px solid pink;  
+::selection {
+    background: #AB87FF;
+    color: #47E98D;
+}
+@font-face{
+	font-family: spacemono;
+	src: url(../fonts/SpaceMono-Regular.ttf);
+}
+body { 
+	margin: 0;
+	padding: 0;
+	background: #111;
+	color: #47E98D;
+	font-family: spacemono, sans-serif;
+	text-align: center;
+}
+.box{
+	width: 400px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #191919;
+	text-align: center;
+	color:white;
+	border-radius: 24px;
+}
+.box h1, .box p{
+	color: white;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
-body {  
-    background-image: url(../imges/bg.jpg);
-    background-size: 70em;
+.box input[type = "text"],.box input[type = "password"]
+{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
 }
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+	width: 280px;
+	border-color: #2ecc71;
+}
+.box input[type = "submit"]
+{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+	background: #2ecc71;
+}
+
+section{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 5;
+}
+section:before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to top, #111, transparent);
+	z-index: 11;
+} 
+section:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%
+	background:#ff0;
+	z-index: 11;
+}
+section img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+#mountain{
+	min-width: 50%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+}
+#hello
+{
+	max-width: 90vw;
+	position: absolute;
+	left: unset;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	height: auto;
+	z-index: 1;
+	margin-top: 15vh;
+}
+#road{
+	z-index: 10;
+}
+
+button{
+	color: purple;
+	position: relative;
+	z-index: 2;
+	height: auto;
+	padding: 19px 45px;
+	border: 2px solid #fff;
+	border-radius: 8px;
+	background-color: transparent;
+	-webkit-transition: color .4s ease,background-color .4s ease;
+	transition: color .4s ease,background-color .4s ease;
+	font-size: 19px;
+	line-height: 30px;
+	font-weight: 400;
+	letter-spacing: 3.5px;
+}
+button:hover{
+	background-color: white;
+	color: purple;
+}
+
