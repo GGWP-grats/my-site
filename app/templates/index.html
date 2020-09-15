@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{%block content %}
+{% block content %}
 
 <section>
-        <img src="../static/imges/hello.png" id="hello">
+        <img src="../static/imges/hello.gif" id="hello">
         <img src="../static/imges/bg1.png" id="bg">
         <img src="../static/imges/neon_mount.png" id="mountain">
         <img src="../static/imges/neon_road.png" id="road">
@@ -26,23 +26,25 @@
 			
 
 			<div class="row mb-5">
-				<div class="col-sm">
-					<img width="auto" height="100px" class="mb-5" src="../static/imges/flask.png" id="flask" >
+				<div class="col-sm mb-5">
+					<img width="auto" height="100px" class="mb-4" src="../static/imges/flask.png" id="flask" >
 					<h3> Python Flask backend</h3>
 				</div>
-				<div class="col-sm">
-					<svg width="auto" height="100px" viewBox="0 0 16 16" class="mb-5 bi bi-code-slash position-relative" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<div class="col-sm mb-5">
+					<svg width="auto" height="100px" viewBox="0 0 16 16" class="mb-4 bi bi-code-slash position-relative" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z"/>
 					</svg>
-					<h3> html,css,js </h3>
+					<h3>HTML, css, js</br> Bootstrap</h3>
 				</div>	
-				<div class="col-sm">
-					<img class="mb-5" height="100px" width="auto" src="../static/imges/lin.png">
+				<div class="col-sm mb-5">
+					<img class="mb-4" height="100px" width="auto" src="../static/imges/lin.png">
 					<h3>Linux, Bash</h3>
 				</div>
 			</div>
 			<div class="container">
-				<button class="text-center" href="{{ url_for('contact_me') }}"> Say something </button>
+			<form method="get" action="{{ url_for('contact_me') }}">
+				<button class="text-center" > Say something </button>
+			</form>
 			</div>
 		
 		</div>

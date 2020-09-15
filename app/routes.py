@@ -2,11 +2,11 @@
 from flask import render_template, flash, redirect
 from flask_login import current_user, login_user, login_required
 
-from app import app
+from app import app, db
 
-from app.forms import LoginForm
+from app.forms import LoginForm, ContactForm
 
-from app.models import User
+from app.models import User, Message
 
 @app.route('/')
 @app.route('/home')
@@ -42,7 +42,10 @@ def logout():
 
 @app.route('/cantactme', methods=['GET', 'POST'])
 def contact_me():
-    form = ContactForm
+    form = ContactForm()
     if form.validate_on_submit():
+        message = Message(name=form.name.data, email=form.email.data, message=form.message.data)
+        db.session.add(message)
+        db.session.commit()
         return redirect('/')
-    return render_template('contact_me.html', title='contact me')
+    return  render_template('contact_me.html', title='contact me', form=form)

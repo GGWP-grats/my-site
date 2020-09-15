@@ -7,6 +7,15 @@ from flask_login import UserMixin
 def load_user(id):
     return User.query.get(int(id))
 
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    email = db.Column(db.String(64))
+    message = db.Column(db.String(1024))
+
+    def __repr__(self):
+        return f'<<{self.name} {self.email} wrote:\n {self.message}>>'
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
