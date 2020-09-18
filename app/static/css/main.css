@@ -134,7 +134,7 @@ section img
 	z-index: 10;
 }
 
-button{
+.submit{
 	color: purple;
 	position: relative;
 	z-index: 2;
@@ -150,7 +150,7 @@ button{
 	font-weight: 400;
 	letter-spacing: 3.5px;
 }
-button:hover{
+.submit:hover{
 	background-color: purple;
 	color: #47E98D;
 	

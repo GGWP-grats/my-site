@@ -1,4 +1,4 @@
-"""empty message
+"""message tab
 
 Revision ID: 88741fc1872e
 Revises: 08dbe999b3b9

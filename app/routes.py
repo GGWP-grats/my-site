@@ -41,7 +41,7 @@ def logout():
     return redirect('/')
 
 @app.route('/cantactme', methods=['GET', 'POST'])
-def contact_me():
+def contact_view():
     form = ContactForm()
     if form.validate_on_submit():
         message = Message(name=form.name.data, email=form.email.data, message=form.message.data)
@@ -49,3 +49,8 @@ def contact_me():
         db.session.commit()
         return redirect('/')
     return  render_template('contact_me.html', title='contact me', form=form)
+
+@app.route('/messages')
+def messages_view():
+    return render_template('messages.html')
+
