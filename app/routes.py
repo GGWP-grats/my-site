@@ -4,9 +4,15 @@ from flask_login import current_user, login_user, login_required
 
 from app import app, db
 
-from app.forms import LoginForm, ContactForm
+from app import forms
 
 from app.models import User, Message
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
 
 @app.route('/')
 @app.route('/home')
@@ -17,7 +23,7 @@ def index():
 def login_adm():
     if current_user.is_authenticated:
         return redirect('/')
-    form = LoginForm()
+    form = forms.LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
@@ -29,20 +35,22 @@ def login_adm():
         return redirect('/')
     return(render_template('login_page.html', title='Login', form=form))
 
-@app.route('/db_content')
-@login_required
-def show_db():
-    return render_template("db_content.html", title='Database')
+@app.route('/regadm', methods=['GET', 'POST'])
+def register_adm():
+    if current_user.is_authenticated:
+        return redirect('/')
+    form = forms.RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/adm')
+    return render_template('registration.html', form=form, title='say something')
 
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect('/')
-
-@app.route('/cantactme', methods=['GET', 'POST'])
+@app.route('/contact', methods=['GET', 'POST'])
 def contact_view():
-    form = ContactForm()
+    form = forms.ContactForm()
     if form.validate_on_submit():
         message = Message(name=form.name.data, email=form.email.data, message=form.message.data)
         db.session.add(message)
