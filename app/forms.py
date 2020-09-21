@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from app.models import User
 
 class ContactForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
     name = StringField('Your name', validators=[DataRequired()])
     message = StringField('Message', validators=[DataRequired()])
     submit = SubmitField('Send message')

@@ -1,7 +1,7 @@
 
-from flask import render_template, flash, redirect
-from flask_login import current_user, login_user, login_required
-
+from flask import render_template, flash, redirect, request, url_for
+from flask_login import current_user, login_user, login_required, logout_user
+from werkzeug.urls import url_parse
 from app import app, db
 
 from app import forms
@@ -30,9 +30,9 @@ def login_adm():
             return(render_template('login_page.html', title='Login', form=form, error="Wrong pass or Username"))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
-        if not next_page or url_parse (next_page).netloc != '':
+        if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
-        return redirect('/')
+        return redirect(next_page)
     return(render_template('login_page.html', title='Login', form=form))
 
 @app.route('/regadm', methods=['GET', 'POST'])
@@ -58,7 +58,10 @@ def contact_view():
         return redirect('/')
     return  render_template('contact_me.html', title='contact me', form=form)
 
+
 @app.route('/messages')
+@login_required
 def messages_view():
-    return render_template('messages.html')
+    messages = Message.query.all()
+    return render_template('messages.html', messages=messages)
 
