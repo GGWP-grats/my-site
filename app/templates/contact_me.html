@@ -4,50 +4,50 @@
 <div class="container justify-content-">
 	<form method="post" action="" novalidate>
 	{{ form.hidden_tag() }}
-		
-
-
-		<div class="row text-center">
-		
-
-			<div class="col-sm">
-				<p>
-					{{ form.name.label}}<br>
-					{{ form.name(size=23, class_ = 'contact', placeholder='Enter your name') }}<br>
-					{% for error in form.name.errors %}
-					 <span style="color: red;">[{{ error }}]</span>
-			            {% endfor %}
-			    </p>
-	    	</div>
+		<div><h1>Contact me</h1></div>
+	
+			<div class="row">
+				<div class="col-sm">
+					<div class="inputbox">
+						{{ form.name(size=23, class_ = 'contact') }}
+						<span class="text">Your name</span>
+						<span class="line"></span>
+						{% for error in form.name.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+				        {% endfor %}
+				    </div>	
+		    	</div>
 	    
 
 	    	<div class="col-sm">
-			    <p>
-			        {{ form.email.label }}<br>
-			        {{ form.email(size=26, class_ = 'contact', placeholder = 'Your email') }}<br>
+			    <div class="inputbox">
+			        {{ form.email(size=26, class_ = 'contact') }}
+			        <span class="text">Your name</span>
+					<span class="line"></span>
 			        {% for error in form.email.errors %}
 			        <span style="color: red;">[{{ error }}]</span>
 			        {% endfor %}
 			        {% if error %}
 			        <span style="color: red;">[{{ error }}]</span>
 			        {% endif %}
-			    </p>
+			    </div>
 			</div>
 		</div>
 		
 
 		<div class="row">
 			<div class="col-sm"> 
-			    <p>	
-			    	{{ form.message.label }}<br>
-			    	{{ form.message(size=50, class_='contact', placeholder = 'Say something') }}
-			    </p>
+			    <div class="inputbox">	
+			    	{{ form.message(size=50, class_='contact') }}
+			    	<span class="text">Your name</span>
+					<span class="line"></span>
+			    </div>
 			    	{% for error in form.message.errors %}
 			        <span style="color: red;">[{{ error }}]</span>
 			        {% endfor %}
-			    <p>
+			    <div>
 			    	{{ form.submit(class_ = 'submit') }}
-			    </p>
+			    </div>
     		</div>
     	</div>
     </form>

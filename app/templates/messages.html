@@ -6,12 +6,12 @@
 
 
 
-	<h1>Messages to me</h1> 
+	<h1>{{ _('Messages to me') }}</h1> 
 
 	{% for message in messages %}
 
-	<h3>{{ message.name }} : {{ message.email }}</h3>
-	<h5>{{ message.message }} </h5>
+	<h3>{{ _(message.name) }} : {{ _(message.email) }}</h3>
+	<h5>{{ _(message.message) }} </h5>
 
 
 	{% endfor %}
