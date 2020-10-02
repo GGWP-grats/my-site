@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+	<div class="container-xl contactcon">
+		<form method="post" action="" novalidate>
+		{{ form.hidden_tag() }}
+			<div><h1>Contact me</h1></div>
+				<div class="row">
+					<div class="col-md">
+						<div class="inputbox">
+							{{ form.name(size=23, class_ = 'contact') }}
+							<span class="text">Name</span>
+							<span class="line"></span>
+							{% for error in form.name.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+					        {% endfor %}
+					    </div>	
+			    	</div>
+		    
+
+		    	<div class="col-md">
+				    <div class="inputbox">
+				        {{ form.email(size=26, class_ = 'contact') }}
+				        <span class="text">Email</span>
+						<span class="line"></span>
+				        {% for error in form.email.errors %}
+				        <span style="color: red;">[{{ error }}]</span>
+				        {% endfor %}
+				        {% if error %}
+				        <span style="color: red;">[{{ error }}]</span>
+				        {% endif %}
+				    </div>
+				</div>
+			</div>
+			
+
+			<div class="row my-3">
+				<div class="col-md"> 
+				    <div class="inputbox">	
+				    	{{ form.message(size=50, class_='contact') }}
+				    	<span class="text">message</span>
+						<span class="line"></span>
+				    </div>
+				    	{% for error in form.message.errors %}
+				        <span style="color: red;">[{{ error }}]</span>
+				        {% endfor %}
+				</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm">
+	    			<div>
+				    	{{ form.submit(class_ = 'submit') }}
+				    </div>
+	    		</div>
+	    	</div>
+	    </form>
+	</div>
+{% endblock %}

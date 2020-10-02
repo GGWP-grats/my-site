@@ -5,12 +5,14 @@
 <div class="continer">
 
 
+
 	<h1>{{ _('Messages to me') }}</h1> 
 
 	{% for message in messages %}
 
 	<h3>{{ _(message.name) }} : {{ _(message.email) }}</h3>
 	<h5>{{ _(message.message) }} </h5>
+
 
 	{% endfor %}
 </div>
