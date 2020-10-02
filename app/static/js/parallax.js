@@ -8,6 +8,6 @@ let road = document.getElementById("road");
 window.addEventListener('scroll', function(){
 	var value = window.scrollY;
 
-	mountain.style.top = -value * 0.3 + 'px';
-	hello.style.top = value * 0.5 + 'px';
+	mountain.style.top = -value * 0.1 + 'px';
+	hello.style.top = value * 0.7 + 'px';
 })

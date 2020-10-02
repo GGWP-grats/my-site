@@ -1,7 +1,4 @@
-::selection {
-    background: #AB87FF;
-    color: #47E98D;
-}
+
 @font-face{
 	font-family: spacemono;
 	src: url(../fonts/SpaceMono-Regular.ttf);
@@ -12,65 +9,12 @@ body {
 	background: #111;
 	color: #47E98D;
 	font-family: spacemono, sans-serif;
-	text-align: center;
+	;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
-.box{
-	width: 400px;
-	padding: 40px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #191919;
-	text-align: center;
-	color:white;
-	border-radius: 24px;
-}
-.box h1, .box p{
-	color: white;
-	text-transform: uppercase;
-	font-weight: 700;
-}
-
-.box input[type = "text"],.box input[type = "password"]
-{
-	border: 0;
-	background: none;
-	display: block;
-	margin: 20px auto;
-	text-align: center;
-	border: 2px solid #3498db;
-	padding: 14px 10px;
-	width: 200px;
-	outline: none;
-	color: white;
-	border-radius: 24px;
-	transition: 0.25s;
-}
-.box input[type = "text"]:focus,.box input[type = "password"]:focus{
-	width: 280px;
-	border-color: #2ecc71;
-}
-.box input[type = "submit"]
-{
-	border: 0;
-	background: none;
-	display: block;
-	margin: 20px auto;
-	text-align: center;
-	border: 2px solid #2ecc71;
-	padding: 14px 40px;
-	width: 200px;
-	outline: none;
-	color: white;
-	border-radius: 24px;
-	transition: 0.25s;
-	cursor: pointer;
-}
-.box input[type = "submit"]:hover{
-	background: #2ecc71;
-}
-
 section{
 	position: relative;
 	width: 100%;
@@ -159,4 +103,152 @@ section img
 				0 0 50px purple,
 				0 0 200px purple;
 }
+.text-center{
+	text-align: center
+}
+.about {
+	text-align: left;
+}
+.container {
+	margin-left: 15vw;
+	margin-right: 15vw;
+}
+.img > img {
+	width: 100px;
+	height: 100px;
+	margin:10px;
+	padding: 10px;
+}
+.img > h3 {
+	margin-right:20px;
+	margin-left: 20px;
+	margin-top: 0;
+}
+#docker{
+	width: 120px;
+}
+
+.image-continer{
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.container .contact {
+	width: 80%;
+	padding: 20px;
+}
+.container .row100
+{
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.container .row100 .col {
+	position: relative;
+	width: 100%;
+	padding: 0 10px;
+	margin: 30px 0 10px;
+	transition: 0.5s;
+}
+
+.container .row100 .inputBox{
+	position: relative;
+	width: 100%;
+	height: 40px;
+}
+.container .row100 .inputBox input,
+.container .row100 .inputBox.textarea textarea 
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	padding: 0 10px;
+	z-index: 1;
+	color: #000;
+}
+.container .row100 .inputBox .text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	line-height: 40px;
+	padding: 0 10px;
+	font-size: 18px;
+	display: block;
+	transition:  0.5s;
+	pointer-events: none;
+}
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text
+{
+	top: -35px;
+	left: -10px;
+}
+.container .row100 .inputBox .line {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: purple;
+	transition: 0.5s;
+	border-radius: 2px;
+	pointer-events: none;
+}
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line
+{
+	height:100%;
+}
+.container .row100 .inputBox.textarea {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	padding: 10px 0;
+}
+.container .row100 .inputBox.textarea textarea 
+{
+	height: 100%;
+	resize: none;
+}
+
+.container .row100 .inputBox textarea:focus + .text,
+.container .row100 .inputBox textarea:valid + .text
+{
+	top: -35px;
+	left: -10px;
+}
+.container .row100 .inputBox textarea:focus ~ .line,
+.container .row100 .inputBox textarea:valid ~ .line
+{
+	height:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

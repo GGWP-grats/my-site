@@ -1,56 +1,36 @@
 {% extends "base.html" %}
 
 {% block content%}
-<div class="container justify-content-">
-	<form method="post" action="" novalidate>
-	{{ form.hidden_tag() }}
-		<div><h1>Contact me</h1></div>
-	
-			<div class="row">
-				<div class="col-sm">
-					<div class="inputbox">
-						{{ form.name(size=23, class_ = 'contact') }}
-						<span class="text">Your name</span>
-						<span class="line"></span>
-						{% for error in form.name.errors %}
-						<span style="color: red;">[{{ error }}]</span>
-				        {% endfor %}
-				    </div>	
-		    	</div>
-	    
-
-	    	<div class="col-sm">
-			    <div class="inputbox">
-			        {{ form.email(size=26, class_ = 'contact') }}
-			        <span class="text">Your name</span>
-					<span class="line"></span>
-			        {% for error in form.email.errors %}
-			        <span style="color: red;">[{{ error }}]</span>
-			        {% endfor %}
-			        {% if error %}
-			        <span style="color: red;">[{{ error }}]</span>
-			        {% endif %}
-			    </div>
+<div class="container contact">
+	<h2> Contact me</h2>
+	<div class="row100">
+		<div class="col">
+			<div class="inputBox">
+				<input type="text" name='' required="required">
+				<span class="text">Email</span>
+				<span class="line"></span>
 			</div>
 		</div>
-		
-
-		<div class="row">
-			<div class="col-sm"> 
-			    <div class="inputbox">	
-			    	{{ form.message(size=50, class_='contact') }}
-			    	<span class="text">Your name</span>
-					<span class="line"></span>
-			    </div>
-			    	{% for error in form.message.errors %}
-			        <span style="color: red;">[{{ error }}]</span>
-			        {% endfor %}
-			    <div>
-			    	{{ form.submit(class_ = 'submit') }}
-			    </div>
-    		</div>
-    	</div>
-    </form>
-</div>
-
+		<div class="col">
+			<div class="inputBox">
+				<input type="text" name='' required="required">
+				<span class="text">Email</span>
+				<span class="line"></span>
+			</div>
+		</div>
+	</div>
+	<div class="row100">
+		<div class="col">
+			<div class="inputBox textarea">
+				<textarea required="required"></textarea>
+				<span class="text"> Type your message here...</span>
+				<span class="line"></span>
+			</div>
+		</div>
+	</div>
+	<div class="row100">
+		<div class="col">
+			<input type="submit" value="Send">
+		</div>
+	</div>
 {% endblock %}
