@@ -231,7 +231,27 @@ section img
 {
 	height:100%;
 }
+.footer{
+	width: 100%;
+	position: relative;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+}
+footer img{
+	width: 75px;
+}
 
+footer *{
+	align-items: center;
+	margin: 10px;
+}
+
+.header button{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0); 
+}
 
 
 
